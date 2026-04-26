@@ -6,6 +6,24 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #5BB9C9 #111111;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #5BB9C9;
+  border-radius: 9999px;
+}
+
 
 @layer components {
   .sidebar-icon {
