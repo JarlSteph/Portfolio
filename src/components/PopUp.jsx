@@ -62,7 +62,7 @@ const Popup = ({ isOpen, onClose, title, text, imArray, smallScreen }) => {
         isOpen && (
           <div
           ref={popupRef}
-          className={`absolute bottom-0 left-0 right-0 w-full h-full bg-black p-4 rounded-l overflow-y-auto transform transition-transform ease-in-out duration-500`}
+          className={`${smallScreen ? 'fixed inset-0 z-40' : 'absolute bottom-0 left-0 right-0 w-full h-full'} bg-black p-4 rounded-l overflow-y-auto transform transition-transform ease-in-out duration-500`}
           style={{ transform: `translateY(${isOpen ? 0 : '100%'})`, opacity: isOpen ? 1 : 0 }}
         >
             <h2 className="text-3xl font-bold mb-4 text-center font-novaMono">{title}</h2>
@@ -114,7 +114,7 @@ const Popup = ({ isOpen, onClose, title, text, imArray, smallScreen }) => {
         // You can customize this block for the Portfolio case
         <div
         ref={popupRef}
-        className={`absolute bottom-0 left-0 right-0 w-full h-full bg-black p-4 rounded-l overflow-y-auto transform transition-transform ease-in-out duration-500`}
+        className={`${smallScreen ? 'fixed inset-0 z-40' : 'absolute bottom-0 left-0 right-0 w-full h-full'} bg-black p-4 rounded-l overflow-y-auto transform transition-transform ease-in-out duration-500`}
         style={{ transform: `translateY(${isOpen ? 0 : '100%'})`, opacity: isOpen ? 1 : 0 }}
       >
             <h2 className="text-3xl font-bold mb-4 text-center font-novaMono">{title}</h2>
@@ -156,7 +156,7 @@ const Popup = ({ isOpen, onClose, title, text, imArray, smallScreen }) => {
 ) : title === "Experience" ? (
   <div
     ref={popupRef}
-    className={`absolute bottom-0 left-0 right-0 w-full h-full bg-black p-4 rounded-l overflow-y-auto transform transition-transform ease-in-out duration-500`}
+    className={`${smallScreen ? 'fixed inset-0 z-40' : 'absolute bottom-0 left-0 right-0 w-full h-full'} bg-black p-4 rounded-l overflow-y-auto transform transition-transform ease-in-out duration-500`}
     style={{ transform: `translateY(${isOpen ? 0 : '100%'})`, opacity: isOpen ? 1 : 0 }}
   >
     <h2 className="text-3xl font-bold mb-6 text-center font-novaMono">{title}</h2>
@@ -218,7 +218,7 @@ const Popup = ({ isOpen, onClose, title, text, imArray, smallScreen }) => {
   <div>
         <div
           ref={popupRef}
-          className={`absolute bottom-0 left-0 right-0 w-full h-full bg-black p-4 rounded-l overflow-y-auto transform transition-transform ease-in-out duration-500`}
+          className={`${smallScreen ? 'fixed inset-0 z-40' : 'absolute bottom-0 left-0 right-0 w-full h-full'} bg-black p-4 rounded-l overflow-y-auto transform transition-transform ease-in-out duration-500`}
           style={{ transform: `translateY(${isOpen ? 0 : '100%'})`, opacity: isOpen ? 1 : 0 }}
         >
             <h2 className="text-3xl font-bold mb-4 text-center font-novaMono">{title}</h2>

@@ -93,7 +93,7 @@ const BackButton = ({ onClick }) => {
   return (
     <div
       ref={buttonRef}
-      className={`absolute  ${windowSize ? 'top-0 left-0' : 'top-10 left-10'} cursor-pointer text-primary p-2 bg-opacity-50 bg-transperent z-10`}
+      className={`${windowSize ? 'fixed top-2 left-2 z-50' : 'absolute top-10 left-10 z-10'} cursor-pointer text-primary p-2 bg-opacity-50 bg-transparent`}
       onClick={handleButtonClick}
     >
       <IoCaretBackCircle size={50}/>
@@ -144,14 +144,16 @@ const Comp_Canvas = () => {
   const SideBar = ({ text1, text2, text3, text4, handleButtonClick}) => {
     const sidebarClass = `flex ${isSmallScreen ? 'flex-row w-full justify-around items-center p-2' : 'flex-col h-full w-16 items-center py-4'} bg-black`;
     const sidebarItemClass = `m-2 ${isSmallScreen ? 'mr-3' : 'mb-3'}`;
+    const iconSize = isSmallScreen ? 40 : 50;
+    const briefcaseSize = isSmallScreen ? 36 : 45;
 
     return (
       <div className={sidebarClass}>
-        <SideBarIcon className={sidebarItemClass} icon={<AiFillSmile size={50} />} text={text3} downIcon={isSmallScreen} onClick={() => handleButtonClick(ComputerPosition, ComputerAngle, MePopUp)}/>
-        <SideBarIcon className={sidebarItemClass} icon={<AiFillContacts size={50} />} text={text2} downIcon={isSmallScreen} onClick={() => handleButtonClick(PaperPosition, PaperAngle,  PortfolioPopUp)}/>
-        <SideBarIcon className={sidebarItemClass} icon={<FaBriefcase size={45} />} text={text4} downIcon={isSmallScreen} onClick={() => handleButtonClick(ExperiencePosition, ExperienceAngle, ExperiencePopUp)}/>
-        <SideBarIcon className={sidebarItemClass} icon={<FaSquarePhone size={50} />} text={text1} downIcon={isSmallScreen} onClick={() => handleButtonClick(MirrorPosition, MirrorAngle, ContactsPopUp)}  />
-    
+        <SideBarIcon className={sidebarItemClass} icon={<AiFillSmile size={iconSize} />} text={text3} downIcon={isSmallScreen} onClick={() => handleButtonClick(ComputerPosition, ComputerAngle, MePopUp)}/>
+        <SideBarIcon className={sidebarItemClass} icon={<AiFillContacts size={iconSize} />} text={text2} downIcon={isSmallScreen} onClick={() => handleButtonClick(PaperPosition, PaperAngle,  PortfolioPopUp)}/>
+        <SideBarIcon className={sidebarItemClass} icon={<FaBriefcase size={briefcaseSize} />} text={text4} downIcon={isSmallScreen} onClick={() => handleButtonClick(ExperiencePosition, ExperienceAngle, ExperiencePopUp)}/>
+        <SideBarIcon className={sidebarItemClass} icon={<FaSquarePhone size={iconSize} />} text={text1} downIcon={isSmallScreen} onClick={() => handleButtonClick(MirrorPosition, MirrorAngle, ContactsPopUp)}  />
+
       </div>
     );
   };
@@ -204,7 +206,7 @@ const Comp_Canvas = () => {
   
   return (
     <div className = {`flex ${isSmallScreen ? 'flex-col-reverse h-screen' : 'flex-row h-screen'}`}> 
-      <div className={`relative ${isSmallScreen ? 'h-2/3 w-full' : 'w-[55%] h-full'} background-color-black`}>
+      <div className={`relative ${isSmallScreen ? 'h-3/5 w-full' : 'w-[55%] h-full'} background-color-black`}>
         {showPopup && (
           <BackButton onClick={() => {
             handleButtonClick(MirrorPosition, MirrorAngle);
@@ -244,19 +246,21 @@ const Comp_Canvas = () => {
 
       <ScrollIcon isSmallScreen={isSmallScreen}/>
 
-      <div className={`${isSmallScreen ? 'h-1/3 w-full flex-col' : 'w-[45%] h-full flex-row'} flex`}>
+      <div className={`${isSmallScreen ? 'h-2/5 w-full flex-col' : 'w-[45%] h-full flex-row'} flex`}>
         {isSmallScreen && <SideBar text1="Contact" text2="Portfolio" text3="About Me" text4="Experience" handleButtonClick={handleButtonClick}/>}
         <div className={`flex-1 bg-black text-white ${isSmallScreen ? 'px-4 py-2' : 'p-9'} overflow-y-hidden relative`}>
           <div className={`transition-opacity duration-500 ${showPopup ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-            <h1 className="text-4xl mb-4 mt-8">
+            <h1 className={`text-4xl mb-2 ${isSmallScreen ? 'mt-1' : 'mt-8'}`}>
               <br />
-              <span className="text-primary font-bold font-novaMono text-6xl">Jarl</span>{' '}
+              <span className={`text-primary font-bold font-novaMono ${isSmallScreen ? 'text-4xl' : 'text-6xl'}`}>Jarl</span>{' '}
               <br />
-              <span className="text-secondary font-bold font-novaMono text-5xl">Stephansson</span>
+              <span className={`text-secondary font-bold font-novaMono ${isSmallScreen ? 'text-3xl' : 'text-5xl'}`}>Stephansson</span>
             </h1>
-            <p className="text-sm text-gray-500 font-lato font-bold mb-8 z-20 w-[90%]">
-              Hello and welcome to my personal website! Explore my space using the icons or drag around the room clicking on the red spaces to discover more about me. Enjoy your visit!
-            </p>
+            {!isSmallScreen && (
+              <p className="text-sm text-gray-500 font-lato font-bold mb-8 z-20 w-[90%]">
+                Hello and welcome to my personal website! Explore my space using the icons or drag around the room clicking on the red spaces to discover more about me. Enjoy your visit!
+              </p>
+            )}
           </div>
           <Popup isOpen={showPopup} onClose={() => setShowPopup(false)} title={popupContent.title} text={popupContent.text} imArray={popupContent.imArray} smallScreen={isSmallScreen}/>
         </div>
