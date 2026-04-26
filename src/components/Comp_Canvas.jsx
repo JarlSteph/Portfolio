@@ -101,9 +101,11 @@ const BackButton = ({ onClick }) => {
   );
 };
 
+const BASE = import.meta.env.BASE_URL;
+
 const MePopUp = {
   title: "About Me",
-  text: "hi"  , imArray: [{src: "/images/selfie.png", alt: "HEJ"}]
+  text: "hi", imArray: [{src: `${BASE}images/selfie.png`, alt: "HEJ"}]
 }
 const ContactsPopUp = {
   title: "Contact Me",

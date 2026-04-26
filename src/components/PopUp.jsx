@@ -29,6 +29,8 @@ function LinkedInHandler(){
 }
 
 
+const img = (name) => `${import.meta.env.BASE_URL}images/${name}`;
+
 const Popup = ({ isOpen, onClose, title, text, imArray, smallScreen }) => {
   const popupRef = useRef(null);
   const [showContactForm, setShowContactForm] = useState(false);
@@ -124,14 +126,14 @@ const Popup = ({ isOpen, onClose, title, text, imArray, smallScreen }) => {
             {/* RPG Narration Game */}
             <hr className="my-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25" />
             <p className="text-lg font-bold mb-3 font-novaMono">RPG Narration Game</p>
-            <img className="max-w-full mx-auto mb-3" src="/images/RPG.png" alt="RPG Narration Game"/>
+            <img className="max-w-full mx-auto mb-3" src={img("RPG.png")} alt="RPG Narration Game"/>
             <p className="leading-6 font-lato mb-2">An AI-driven role-playing game with a multiplayer front/backend. I built an agent that narrates and drives the story dynamically based on player decisions.</p>
             <a href="https://github.com/max-andreasen/rpg-narration-game" target="_blank" rel="noreferrer" className="inline-block mt-1 mb-2 text-primary hover:text-white font-lato text-sm transition">GitHub →</a>
 
             {/* HomerLLM */}
             <hr className="my-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25" />
             <p className="text-lg font-bold mb-3 font-novaMono">HomerLLM</p>
-            <img className="max-w-full mx-auto mb-3" src="/images/homer.png" alt="HomerLLM"/>
+            <img className="max-w-full mx-auto mb-3" src={img("homer.png")} alt="HomerLLM"/>
             <p className="leading-6 font-lato mb-2">A fine-tuned language model specialising in the Iliad and Odyssey, augmented with a RAG pipeline to answer questions grounded in the source texts.</p>
             <div className="flex gap-4 mt-1 mb-2">
               <a href="https://huggingface.co/spaces/StefanCoder1/LoreChat" target="_blank" rel="noreferrer" className="text-primary hover:text-white font-lato text-sm transition">Demo →</a>
@@ -141,14 +143,14 @@ const Popup = ({ isOpen, onClose, title, text, imArray, smallScreen }) => {
             {/* BirdUp */}
             <hr className="my-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25" />
             <p className="text-lg font-bold mb-3 font-novaMono">BirdUp</p>
-            <img className="max-w-full mx-auto mb-3" src="/images/BirdUp.png" alt="BirdUp"/>
+            <img className="max-w-full mx-auto mb-3" src={img("BirdUp.png")} alt="BirdUp"/>
             <p className="leading-6 font-lato mb-2">A daily ML prediction system using a deep neural network to forecast Eagle sightings across regions of Sweden, updated automatically each day.</p>
             <a href="https://github.com/JarlSteph/BirdUp" target="_blank" rel="noreferrer" className="inline-block mt-1 mb-2 text-primary hover:text-white font-lato text-sm transition">GitHub →</a>
 
             {/* EPFL DPO Finetuning */}
             <hr className="my-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25" />
             <p className="text-lg font-bold mb-3 font-novaMono">EPFL — LLM Finetuning with DPO</p>
-            <img className="max-w-full mx-auto mb-3" src="/images/epfl.png" alt="EPFL DPO"/>
+            <img className="max-w-full mx-auto mb-3" src={img("epfl.png")} alt="EPFL DPO"/>
             <p className="leading-6 font-lato mb-4">Applied Direct Preference Optimisation (DPO) to finetune a large language model on computer science Q&amp;A, improving answer quality and domain alignment.</p>
           </div>
 ) : title === "Experience" ? (
@@ -166,7 +168,7 @@ const Popup = ({ isOpen, onClose, title, text, imArray, smallScreen }) => {
       <span className="text-xs text-gray-400 font-lato">Jan 2026 – Present</span>
     </div>
     <p className="text-sm text-secondary font-lato mb-2 italic">Masters Thesis & Summer Internship &mdash; Stockholm, SE</p>
-    <img className="w-48 mx-auto mb-3" src="/images/BN.png" alt="Bonnier News"/>
+    <img className="w-48 mx-auto mb-3" src={img("BN.png")} alt="Bonnier News"/>
     <ul className="leading-6 font-lato list-disc list-inside space-y-1 mb-3">
       <li>Fine-tuned and implemented RAG solutions to reduce hallucinations.</li>
       <li>Created training data and custom in-domain evaluation pipelines.</li>
@@ -179,7 +181,7 @@ const Popup = ({ isOpen, onClose, title, text, imArray, smallScreen }) => {
       <span className="text-xs text-gray-400 font-lato">Sep 2023 – Sep 2025</span>
     </div>
     <p className="text-sm text-secondary font-lato mb-2 italic">Certification Team &mdash; Stockholm, SE</p>
-    <img className="w-48 mx-auto mb-3" src="/images/TCO.png" alt="TCO"/>
+    <img className="w-48 mx-auto mb-3" src={img("TCO.png")} alt="TCO"/>
     <ul className="leading-6 font-lato list-disc list-inside space-y-1 mb-3">
       <li>Administered lab certification data for a global sustainability-focused organisation.</li>
       <li>Maintained communication with laboratories worldwide, ensuring data accuracy.</li>
@@ -192,7 +194,7 @@ const Popup = ({ isOpen, onClose, title, text, imArray, smallScreen }) => {
       <span className="text-xs text-gray-400 font-lato">Jan 2024 – May 2024</span>
     </div>
     <p className="text-sm text-secondary font-lato mb-2 italic">Bachelors Thesis &mdash; Stockholm, SE</p>
-    <img className="w-48 mx-auto mb-3" src="/images/sl_pic.png" alt="SL"/>
+    <img className="w-48 mx-auto mb-3" src={img("sl_pic.png")} alt="SL"/>
     <ul className="leading-6 font-lato list-disc list-inside space-y-1 mb-3">
       <li>Designed and trained a noise-adapted text-to-speech model using deep learning.</li>
       <li>Improved speech intelligibility in noisy environments by ~40%.</li>
@@ -205,7 +207,7 @@ const Popup = ({ isOpen, onClose, title, text, imArray, smallScreen }) => {
       <span className="text-xs text-gray-400 font-lato">Mar 2024 – Sep 2024</span>
     </div>
     <p className="text-sm text-secondary font-lato mb-2 italic">Teacher Assistant &mdash; Stockholm, SE</p>
-    <img className="w-48 mx-auto mb-3" src="/images/KTH.png" alt="KTH"/>
+    <img className="w-48 mx-auto mb-3" src={img("KTH.png")} alt="KTH"/>
     <ul className="leading-6 font-lato list-disc list-inside space-y-1 mb-4">
       <li>Assisted in teaching machine learning courses for Media Technology students.</li>
       <li>Led a team of 14 within university student organisations.</li>
